@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Login</h2>
+      <form method="POST" action="/login" id="login-form">
+        <input type="text" name="userId" placeholder="아이디 입력" id="login-id-input" />
+        <input type="password" name="userPw" placeholder="비번 입력" id="login-pw-input" />
+        <input type="submit" value="Login" id="login-form-submit" />
+      </form>
+      <a href="/">메인페이지가기</a>
+    </div>
+    <script src="js/login.js"></script>
+  </body>
+</html>
