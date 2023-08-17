@@ -3,18 +3,11 @@ const app = express();
 const path = require("path");
 const cors = require("cors"); // cors 라이브러리 import
 const bodyParser = require("body-parser"); // body-parser 라이브러리 import
-const mongoose = require("mongoose");
+
+const { User } = require("./models/user");
+const mongoConnect = require("./util/database").mongoConnect; // mongodb 데이터베이스
 
 const port = process.env.PORT || 3000;
-const User = require("./models/user");
-
-const db = mongoose.connection;
-db.on("error", console.error);
-db.once("open", () => {
-  console.log("connected to mongod server");
-});
-
-mongoose.connect("mongodb+srv://dks729927:dks729927@cluster0.x0xx2st.mongodb.net/");
 
 app.use(cors()); // cors 사용
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,27 +24,39 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 app.post("/login", (req, res) => {
-  const user = new User();
-  user.userId = req.body.userId;
-  user.userPw = req.body.userPw;
+  console.log(req.body);
 
-  user
-    .save()
-    .then(() => {
-      res.json({ result: 1 });
+  User.findById(req.body.userId)
+    .then(user => {
+      if (!user || user.password !== req.body.userPw) {
+        return res.status(401).json({ message: "Invalid username or password." });
+      }
+      res.status(200).json({ message: "Login successful." });
     })
-    .catch(err => {
-      console.error(err);
-      res.json({ result: 0 });
+    .catch(error => {
+      console.error("Error during login:", error);
+      res.status(500).json({ message: "Login failed." });
     });
 });
 
 app.get("/signup", (req, res) => {
   res.render("signup");
 });
+app.post("/signup", (req, res) => {
+  const user = new User(req.body.userId, req.body.userPw);
 
-app.get;
+  user
+    .save()
+    .then(result => {
+      console.log("User saved:", result);
+      res.status(201).json({ message: "User saved successfully!" });
+    })
+    .catch(error => {
+      console.error("Error saving user:", error);
+      res.status(500).json({ message: "User save failed." });
+    });
+});
 
-app.listen(port, () => {
-  console.log(`server is listening at localhost:${port}`);
+mongoConnect(client => {
+  app.listen(3000);
 });

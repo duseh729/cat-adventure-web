@@ -7,6 +7,13 @@
   </head>
   <body>
     <div><h1>회원가입 페이지</h1></div>
+    <div class="login-container">
+      <form method="POST" action="/signup" id="login-form">
+        <input type="text" name="userId" placeholder="아이디 입력" id="login-id-input" />
+        <input type="password" name="userPw" placeholder="비번 입력" id="login-pw-input" />
+        <input type="submit" value="SignUp" id="login-form-submit" />
+      </form>
+    </div>
     <a href="/">메인페이지가기</a>
   </body>
 </html>
