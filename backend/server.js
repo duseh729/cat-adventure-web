@@ -44,17 +44,35 @@ app.get("/signup", (req, res) => {
   res.render("signup");
 });
 app.post("/signup", (req, res) => {
-  const user = new User(req.body.userId, req.body.userPw);
+  const { userId, userPw } = req.body;
 
-  user
-    .save()
-    .then(result => {
-      console.log("User saved:", result);
-      res.status(201).json({ message: "User saved successfully!" });
+  // 아이디나 비밀번호 중 하나라도 비어있을 경우
+  if (userId === "" || userPw === "") {
+    return res.json({ message: "아이디와 비밀번호를 입력해주세요." });
+  }
+
+  User.findById({ userId: userId })
+    .then(existingUser => {
+      if (existingUser) {
+        return res.json({ message: "이미 존재하는 아이디입니다." });
+      }
+
+      const user = new User(userId, userPw);
+
+      user
+        .save()
+        .then(result => {
+          console.log("User saved:", result);
+          res.status(201).json({ message: "회원가입이 완료되었습니다." });
+        })
+        .catch(error => {
+          console.error("Error saving user:", error);
+          res.status(500).json({ message: "회원가입 중 오류가 발생했습니다." });
+        });
     })
     .catch(error => {
-      console.error("Error saving user:", error);
-      res.status(500).json({ message: "User save failed." });
+      console.error("Error checking user:", error);
+      res.status(500).json({ message: "회원가입 중 오류가 발생했습니다." });
     });
 });
 
