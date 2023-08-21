@@ -24,11 +24,12 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 app.post("/login", (req, res) => {
-  console.log(req.body);
+  const { userId, userPw } = { ...req.body };
+  console.log(userId, userPw);
 
-  User.findById(req.body.userId)
+  User.findById({ userId: userId })
     .then(user => {
-      if (!user || user.password !== req.body.userPw) {
+      if (!user || user.password !== userPw) {
         return res.status(401).json({ message: "Invalid username or password." });
       }
       res.status(200).json({ message: "Login successful." });

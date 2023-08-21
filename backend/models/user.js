@@ -14,9 +14,9 @@ class User {
     return db.collection("users").insertOne(this);
   }
 
-  static findById(userId) {
+  static findById(data) {
     const db = getDb();
-    return db.collection("users").findOne({ _id: new ObjectId(userId) });
+    return db.collection("users").findOne({ id: data.userId });
   }
 }
 
