@@ -32,7 +32,7 @@ app.post("/login", (req, res) => {
       if (!user || user.password !== userPw) {
         return res.status(401).json({ message: "Invalid username or password." });
       }
-      res.status(200).json({ message: "Login successful." });
+      res.status(200).json({ message: "Login successful.", userId: userId });
     })
     .catch(error => {
       console.error("Error during login:", error);
