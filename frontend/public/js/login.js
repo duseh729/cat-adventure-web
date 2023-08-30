@@ -19,7 +19,7 @@ loginForm.addEventListener("submit", e => {
       .then(data => {
         window.localStorage.setItem("name", data.userId);
         const name = window.localStorage.getItem("name");
-        console.log(name);
+        window.location.href = "/";
       })
       .catch(error => {
         console.error("Error:", error);
