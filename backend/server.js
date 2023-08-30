@@ -76,6 +76,14 @@ app.post("/signup", (req, res) => {
     });
 });
 
+app.get("/escape", (req, res) => {
+  res.render("Escape/index");
+});
+
+app.get("/sub", (req, res) => {
+  res.render("sub");
+});
+
 mongoConnect(client => {
   app.listen(3000);
 });
