@@ -10,3 +10,8 @@ h1,
 p {
   margin: 0;
 }
+
+.hide {
+  opacity: 0;
+  transform: translateX(50px);
+}
