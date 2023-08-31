@@ -4,15 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/default.css" />
+    <link rel="stylesheet" href="css/contents.css" />
   </head>
   <body>
     <header>
-      <nav><div class="logo"></div></nav>
+      <!-- 네비게이션바 -->
+      <nav class="navbar" id="navbar">
+        <div class="logo"><h1>Logo</h1></div>
+        <ul>
+          <li><span>1</span></li>
+          <li><span>2</span></li>
+          <li><span>3</span></li>
+          <li><span>4</span></li>
+        </ul>
+      </nav>
+      <!-- 네브바 옆 헤더 -->
+      <div class="fixed-header" id="fixed-header">
+        <div id="nickname"></div>
+        <a href="login" id="login">로그인</a>
+        <a href="signup" id="signup">회원가입</a>
+        <button id="logout">로그아웃</button>
+      </div>
     </header>
-    <div id="nickname"></div>
-    <a href="login" id="login">로그인</a>
-    <a href="signup" id="signup">회원가입</a>
-    <button id="logout">로그아웃</button>
+
+    <section>
+      <!-- 네비게이션바 위치에 따른 컨텐츠 위치 조정 -->
+      <div id="contents-position">
+        <div class="main-info">
+          <div class="first-main-contents">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, nostrum. Cumque inventore nulla tempora molestias atque ex quo, voluptatum
+              praesentium voluptates voluptas temporibus. Corporis voluptatum maxime doloremque? Qui, magnam eius.
+            </p>
+          </div>
+          <div class="second-main-contents"></div>
+          <div class="temp-image-wrapper"><img class="temp-image" src="img/temp.jpg" alt="temp" /></div>
+        </div>
+      </div>
+    </section>
     <script src="js/index.js"></script>
+    <script src="js/header.js"></script>
   </body>
 </html>
