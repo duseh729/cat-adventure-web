@@ -15,3 +15,7 @@ p {
   opacity: 0;
   transform: translateX(50px);
 }
+
+.display-none {
+  display: none;
+}

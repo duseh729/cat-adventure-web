@@ -7,8 +7,30 @@
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/default.css" />
     <link rel="stylesheet" href="css/contents.css" />
+    <link rel="stylesheet" href="css/signup.css" />
   </head>
   <body>
+    <!-- 로그인, 회원가입 폼 -->
+    <section id="signup-form">
+      <div class="login-form">
+        <div class="login-signup-transform-wrapper">
+          <button class="login-signup-transform">로그인</button>
+          <button class="login-signup-transform">회원가입</button>
+        </div>
+        <form id="login-form">
+          <div class="form-input-wrapper">
+            <label for="login-id-input">아이디</label>
+            <input type="text" name="userId" placeholder="아이디 입력" id="login-id-input" />
+          </div>
+          <div class="form-input-wrapper">
+            <label for="login-pw-input">비밀번호</label>
+            <input type="password" name="userPw" placeholder="비번 입력" id="login-pw-input" />
+          </div>
+          <input type="submit" value="Login" id="login-form-submit" />
+        </form>
+      </div>
+    </section>
+
     <header>
       <!-- 네비게이션바 -->
       <nav class="navbar" id="navbar">
@@ -33,14 +55,14 @@
       <!-- 네비게이션바 위치에 따른 컨텐츠 위치 조정 -->
       <div id="contents-position">
         <div class="main-info">
-          <div class="first-main-contents">
+          <article class="first-main-contents">
             <h1>Lorem ipsum dolor, sit amet consectetur adipisicing.</h1>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, nostrum. Cumque inventore nulla tempora molestias atque ex quo, voluptatum
               praesentium voluptates voluptas temporibus. Corporis voluptatum maxime doloremque? Qui, magnam eius.
             </p>
-          </div>
-          <div class="second-main-contents">
+          </article>
+          <article class="second-main-contents">
             <div class="second-main-contents-text-wrapper">
               <h1>Lorem ipsum dolor sit.</h1>
               <p>
@@ -62,12 +84,15 @@
                 <div class="game-box"></div>
               </div>
             </div>
-          </div>
+          </article>
           <div class="third-main-contents"></div>
           <!-- <div class="temp-image-wrapper"><img class="temp-image" src="img/temp.jpg" alt="temp" /></div> -->
         </div>
       </div>
     </section>
+    <script src="js/login.js"></script>
+    <script src="js/signup.js"></script>
+
     <script src="js/index.js"></script>
     <script src="js/header.js"></script>
     <script src="js/contents.js"></script>
