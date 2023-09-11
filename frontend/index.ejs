@@ -11,7 +11,7 @@
   </head>
   <body>
     <!-- 로그인, 회원가입 폼 -->
-    <section id="signup-form">
+    <section id="signup-form" class="display-none">
       <div class="login-form">
         <div class="login-signup-transform-wrapper">
           <button class="login-signup-transform">로그인</button>
@@ -45,8 +45,8 @@
       <!-- 네브바 옆 헤더 -->
       <div class="fixed-header" id="fixed-header">
         <div id="nickname"></div>
-        <a href="login" id="login">로그인</a>
-        <a href="signup" id="signup">회원가입</a>
+        <p id="login">로그인</p>
+        <p id="signup">회원가입</p>
         <button id="logout">로그아웃</button>
       </div>
     </header>
@@ -93,7 +93,6 @@
     <script src="js/login.js"></script>
     <script src="js/signup.js"></script>
 
-    <script src="js/index.js"></script>
     <script src="js/header.js"></script>
     <script src="js/contents.js"></script>
   </body>
