@@ -19,3 +19,7 @@ p {
 .display-none {
   display: none;
 }
+
+.clicked {
+  background-color: tomato;
+}
