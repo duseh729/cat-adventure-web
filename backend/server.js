@@ -20,9 +20,6 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/login", (req, res) => {
-  res.render("login");
-});
 app.post("/login", (req, res) => {
   const { userId, userPw } = { ...req.body };
   console.log(userId, userPw);
@@ -40,9 +37,6 @@ app.post("/login", (req, res) => {
     });
 });
 
-app.get("/signup", (req, res) => {
-  res.render("signup");
-});
 app.post("/signup", (req, res) => {
   const { userId, userPw } = req.body;
 
@@ -63,7 +57,7 @@ app.post("/signup", (req, res) => {
         .save()
         .then(result => {
           console.log("User saved:", result);
-          res.status(201).json({ message: "회원가입이 완료되었습니다." });
+          res.status(201).json({ message: "회원가입이 완료되었습니다.", success: true });
         })
         .catch(error => {
           console.error("Error saving user:", error);
