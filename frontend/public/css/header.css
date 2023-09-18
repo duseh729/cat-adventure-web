@@ -12,6 +12,9 @@
   padding-left: 10px;
   padding-right: 10px;
 }
+.navbar h1:hover {
+  cursor: pointer;
+}
 
 .navbar ul {
   list-style: none;
@@ -20,15 +23,21 @@
 
 .navbar ul li {
   font-size: 18px;
-  color: gray;
+  color: black;
 }
 .navbar ul li:hover {
   background-color: #eee;
+  cursor: pointer;
 }
 
 .navbar span {
   padding: 7px 10px;
   vertical-align: middle;
+}
+
+.nav-icon-image {
+  width: 25px;
+  height: 25px;
 }
 
 /* 네브바 옆 헤더 */
