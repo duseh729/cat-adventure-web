@@ -71,7 +71,7 @@ app.post("/signup", (req, res) => {
 });
 
 app.get("/escape", (req, res) => {
-  res.render("Escape/index");
+  res.render("public/Escape/index");
 });
 
 app.get("/sub", (req, res) => {
