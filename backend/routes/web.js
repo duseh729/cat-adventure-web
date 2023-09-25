@@ -6,7 +6,7 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-router.get("/sub", (req, res) => {
+router.get("/board", (req, res) => {
   res.render("board");
 });
 
