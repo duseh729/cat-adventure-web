@@ -16,6 +16,7 @@
 
     <div id="contents-position">
       <div id="board-container">
+        <button id="write">글 쓰기</button>
         <div class="board-wrapper">
           <h1>게시판</h1>
         </div>
@@ -36,5 +37,12 @@
 
     <!-- js -->
     <%- include('includes/js') %>
+    <script>
+      const writeBtn = document.getElementById("write");
+
+      writeBtn.addEventListener("click", e => {
+        window.location.href = "/write";
+      });
+    </script>
   </body>
 </html>

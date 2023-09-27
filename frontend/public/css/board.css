@@ -32,3 +32,9 @@
   /* background-color: tomato; */
   margin-right: 2px;
 }
+
+#write {
+  position: absolute;
+  right: 10%;
+  top: 10%;
+}
