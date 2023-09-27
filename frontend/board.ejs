@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <%- include('includes/style') %>
+    <link rel="stylesheet" href="css/board.css" />
   </head>
   <body>
     <!-- login -->
@@ -14,7 +15,23 @@
     <%- include('includes/nav') %>
 
     <div id="contents-position">
-      <div id="board-container"></div>
+      <div id="board-container">
+        <div class="board-wrapper">
+          <h1>게시판</h1>
+        </div>
+        <div class="board-title-wrapper">
+          <span class="board-title" style="flex: 1">번호</span>
+          <span class="board-title" style="flex: 4">제목</span>
+          <span class="board-title" style="flex: 1">글쓴이</span>
+          <span class="board-title" style="flex: 2">작성일</span>
+        </div>
+        <div class="board-write-wrapper">
+          <span class="board-write" style="flex: 1">1</span>
+          <span class="board-write" style="flex: 4">안뇽</span>
+          <span class="board-write" style="flex: 1">응기잇</span>
+          <span class="board-write" style="flex: 2">2023-05-13</span>
+        </div>
+      </div>
     </div>
 
     <!-- js -->
