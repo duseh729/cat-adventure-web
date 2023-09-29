@@ -6,6 +6,7 @@
     <title>Document</title>
     <!-- css -->
     <%- include('includes/style') %>
+    <link rel="stylesheet" href="css/write.css" />
   </head>
   <body>
     <!-- login -->
@@ -15,10 +16,27 @@
     <%- include('includes/nav') %>
 
     <div id="contents-position">
-      <div>대충 글쓰기 페이지</div>
+      <div id="write-container">
+        <div>
+          <div class="input-wrapper">
+            <div>
+              <label for="title-input">제목</label>
+            </div>
+            <input type="text" name="title" id="title-input" />
+          </div>
+          <div class="input-wrapper">
+            <div>
+              <label for="contents-input">내용</label>
+            </div>
+            <textarea rows="20" cols="100" name="contents" id="contents-input"></textarea>
+          </div>
+          <button id="write-button">등록</button>
+        </div>
+      </div>
     </div>
 
     <!-- js -->
     <%- include('includes/js') %>
+    <script src="js/write/postWrite.js"></script>
   </body>
 </html>

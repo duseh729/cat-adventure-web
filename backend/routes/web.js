@@ -11,8 +11,10 @@ router.get("/board", (req, res) => {
 });
 
 router.get("/write", (req, res, next) => {
-  console.log("요청옴");
   res.render("write", { title: "write" });
+});
+router.post("/write", (req, res, next) => {
+  console.log(req.body);
 });
 
 module.exports = router;
