@@ -16,18 +16,22 @@ const contentsInputHandler = e => {
 titleInput.addEventListener("change", titleInputHandler);
 contentsInput.addEventListener("change", contentsInputHandler);
 writeButton.addEventListener("click", e => {
-  e.preventDefault();
+  // if (window.localStorage.getItem("name")){
+
+  // }
+  const userId = window.localStorage.getItem("name");
 
   fetch("/write", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: `titleValue=${titleValue}&contentsValue=${contentsValue}`,
+    body: `userId=${userId}&title=${titleValue}&contents=${contentsValue}`,
   })
     // .then(response => response.json())
     // .then(data => {})
     .catch(error => {
       console.error("Error:", error);
     });
+  // window.location.href = "/board";
 });

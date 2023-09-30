@@ -23,5 +23,15 @@ const getDb = () => {
   throw "No database found!";
 };
 
+// const getNextSequence = name => {
+//   var ret = _db.colleciotn("counter").findAndModify({
+//     query: { _id: name },
+//     update: { $inc: { seq: 1 } },
+//     new: true,
+//   });
+//   return ret.seq;
+// };
+
 exports.mongoConnect = mongoConnect;
 exports.getDb = getDb;
+// exports.getNextSequence = getNextSequence;
