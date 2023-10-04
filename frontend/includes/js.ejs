@@ -4,3 +4,24 @@
 
 <script src="js/header.js"></script>
 <script src="js/contents.js"></script>
+<script>
+  const logoNavigation = document.querySelector(".logo");
+  const gameNavigation = document.getElementById("game-navigation");
+  const boardNavigation = document.getElementById("board-navigation");
+
+  logoNavigation.addEventListener("click", e => {
+    e.preventDefault();
+
+    window.location.href = "/";
+  });
+
+  gameNavigation.addEventListener("click", () => {
+    window.location.href = "/game";
+  });
+
+  boardNavigation.addEventListener("click", e => {
+    e.preventDefault();
+
+    window.location.href = "/board";
+  });
+</script>

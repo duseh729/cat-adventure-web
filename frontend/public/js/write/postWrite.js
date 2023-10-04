@@ -28,8 +28,13 @@ writeButton.addEventListener("click", e => {
     },
     body: `userId=${userId}&title=${titleValue}&contents=${contentsValue}`,
   })
-    // .then(response => response.json())
-    // .then(data => {})
+    .then(response => response.json())
+    .then(data => {
+      const result = data.message;
+      if (result === "success") {
+        alert("게시물이 저장되었습니다.");
+      }
+    })
     .catch(error => {
       console.error("Error:", error);
     });

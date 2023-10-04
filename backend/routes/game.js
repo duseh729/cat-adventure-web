@@ -10,4 +10,6 @@ router.get("/quiz", (req, res, next) => {
   res.render("game/Quiz/index");
 });
 
+router.get("");
+
 module.exports = router;

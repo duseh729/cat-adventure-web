@@ -40,4 +40,8 @@ router.post("/write", (req, res, next) => {
   });
 });
 
+router.get("/game", (req, res, next) => {
+  res.render("game");
+});
+
 module.exports = router;
