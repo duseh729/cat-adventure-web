@@ -24,6 +24,15 @@ class Board {
     const db = getDb();
     return db.collection("counter").updateOne({ name: "총게시물개수" }, { $inc: { totalPosts: 1 } });
   }
-}
 
+  static async findAll() {
+    const db = getDb();
+    try {
+      const result = await db.collection("board").find({}).toArray();
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+}
 exports.Board = Board;

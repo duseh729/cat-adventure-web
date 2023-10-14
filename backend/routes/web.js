@@ -13,7 +13,13 @@ router.get("/board", (req, res) => {
 });
 
 router.get("/write", (req, res, next) => {
-  res.render("write", { title: "write" });
+  Board.findAll()
+    .then(write => {
+      return res.json(write);
+    })
+    .catch(err => {
+      console(err);
+    });
 });
 router.post("/write", (req, res, next) => {
   const { userId, title, contents } = { ...req.body };
