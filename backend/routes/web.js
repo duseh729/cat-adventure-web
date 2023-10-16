@@ -18,7 +18,7 @@ router.get("/write", (req, res, next) => {
       return res.json(write);
     })
     .catch(err => {
-      console(err);
+      console.log(err);
     });
 });
 router.post("/write", (req, res, next) => {
