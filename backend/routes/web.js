@@ -25,11 +25,11 @@ router.get("/write", (req, res, next) => {
   res.render("write");
 });
 router.post("/write", (req, res, next) => {
-  const { userId, title, contents } = { ...req.body };
+  const { userId, title, contents, date } = { ...req.body };
   Board.findWriteCount().then(write => {
     const totalPosts = write.totalPosts;
     if (totalPosts !== undefined) {
-      const board = new Board(totalPosts + 1, userId, title, contents);
+      const board = new Board(totalPosts + 1, userId, title, contents, date);
 
       board
         .save()

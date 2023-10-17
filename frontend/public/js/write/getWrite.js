@@ -18,10 +18,15 @@ fetch("/board-data", {
       writeTitle.innerHTML = i.title;
       writeTitle.classList.add("board-write", "write-title");
       const writeWriter = document.createElement("span");
-      writeWriter.innerHTML = i.userId;
+      // json으로 오는 null이라 string값으로 오는듯하다.
+      if (i.userId !== "null") {
+        writeWriter.innerHTML = i.userId;
+      } else {
+        writeWriter.innerHTML = "익명";
+      }
       writeWriter.classList.add("board-write", "write-writer");
       const writeDate = document.createElement("span");
-      writeDate.innerHTML = `2023-10-19`;
+      writeDate.innerHTML = `${i.date}`;
       writeDate.classList.add("board-write", "write-date");
 
       writeBox.appendChild(writeId);

@@ -3,12 +3,13 @@ const getDb = require("../util/database").getDb;
 // const getNextSequence = require("../util/database").getNextSequence;
 
 class Board {
-  constructor(id, userId, title, contents) {
+  constructor(id, userId, title, contents, date) {
     // this._id = getNextSequence("userId");
     this.id = id;
     this.userId = userId;
     this.title = title;
     this.contents = contents;
+    this.date = date;
   }
 
   save() {
