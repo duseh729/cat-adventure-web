@@ -1,4 +1,4 @@
-fetch("/write", {
+fetch("/board-data", {
   method: "GET",
   headers: {
     "Content-Type": "application/x-www-form-urlencoded",
@@ -8,7 +8,6 @@ fetch("/write", {
   .then(data => {
     const boardContainer = document.getElementById("board-container");
     for (i of data) {
-      console.log(i);
       const writeBox = document.createElement("div");
       writeBox.classList.add("board-write-wrapper");
 

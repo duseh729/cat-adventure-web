@@ -8,11 +8,10 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-router.get("/board", (req, res) => {
+router.get("/board", (req, res, next) => {
   res.render("board");
 });
-
-router.get("/write", (req, res, next) => {
+router.get("/board-data", (req, res, next) => {
   Board.findAll()
     .then(write => {
       return res.json(write);
@@ -20,6 +19,10 @@ router.get("/write", (req, res, next) => {
     .catch(err => {
       console.log(err);
     });
+});
+
+router.get("/write", (req, res, next) => {
+  res.render("write");
 });
 router.post("/write", (req, res, next) => {
   const { userId, title, contents } = { ...req.body };
