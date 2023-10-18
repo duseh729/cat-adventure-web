@@ -1,6 +1,5 @@
 const loginForm = document.getElementById("login-form");
 
-const nickname = document.getElementById("nickname");
 const logoutBtn = document.getElementById("logout");
 
 // 로그인 인풋값 서버 전송.
@@ -21,8 +20,8 @@ loginForm.addEventListener("submit", e => {
     })
       .then(response => response.json())
       .then(data => {
-        window.localStorage.setItem("name", data.userId);
-        const name = window.localStorage.getItem("name");
+        window.localStorage.setItem("nickname", data.userNickname);
+        const nickname = window.localStorage.getItem("nickname");
         window.location.href = "/";
       })
       .catch(error => {

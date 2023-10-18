@@ -13,7 +13,7 @@ router.post("/login", (req, res) => {
       if (!user || user.password !== userPw) {
         return res.status(401).json({ message: "Invalid username or password." });
       }
-      res.status(200).json({ message: "Login successful.", userId: userId });
+      res.status(200).json({ message: "Login successful.", userNickname: user.nickname });
     })
     .catch(error => {
       console.error("Error during login:", error);
@@ -22,10 +22,10 @@ router.post("/login", (req, res) => {
 });
 
 router.post("/signup", (req, res) => {
-  const { userId, userPw } = req.body;
+  const { userId, userNickname, userPw } = req.body;
 
   // 아이디나 비밀번호 중 하나라도 비어있을 경우
-  if (userId === "" || userPw === "") {
+  if (userId === "" || userPw === "" || userNickname === "") {
     return res.json({ message: "아이디와 비밀번호를 입력해주세요." });
   }
 
@@ -35,7 +35,7 @@ router.post("/signup", (req, res) => {
         return res.json({ message: "이미 존재하는 아이디입니다." });
       }
 
-      const user = new User(userId, userPw);
+      const user = new User(userId, userNickname, userPw);
 
       user
         .save()

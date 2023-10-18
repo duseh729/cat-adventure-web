@@ -7,7 +7,8 @@ const logout = document.getElementById("logout");
 const loginBtn = document.getElementById("loginBtn");
 const signupBtn = document.getElementById("signupBtn");
 
-const name = window.localStorage.getItem("name");
+const nicknameBox = document.getElementById("nickname");
+const nickname = window.localStorage.getItem("nickname");
 
 const h1 = document.createElement("h1");
 
@@ -53,13 +54,13 @@ signupBtn.addEventListener("click", () => {
 });
 
 // 유저 정보 있을 시 처리
-if (name) {
+if (nickname) {
   login.style.display = "none";
   signup.style.display = "none";
   logout.style.display = "block";
 
-  h1.textContent = `${name}아 반갑다`;
-  nickname.appendChild(h1);
+  h1.textContent = `${nickname}님 환영`;
+  nicknameBox.appendChild(h1);
   // 없을 시 처리
 } else {
   login.style.display = "inline";
@@ -69,6 +70,6 @@ if (name) {
 
 // 로그아웃 처리
 logout.addEventListener("click", () => {
-  window.localStorage.removeItem("name");
+  window.localStorage.removeItem("nickname");
   window.location.href = "/";
 });

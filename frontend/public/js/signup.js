@@ -5,6 +5,7 @@ signupForm.addEventListener("submit", e => {
   e.preventDefault();
 
   const userId = signupForm.userId.value;
+  const userNickname = signupForm.userNickname.value;
   const userPw = signupForm.userPw.value;
 
   if (userId && userPw) {
@@ -14,7 +15,7 @@ signupForm.addEventListener("submit", e => {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: `userId=${userId}&userPw=${userPw}`,
+      body: `userId=${userId}&userNickname=${userNickname}&userPw=${userPw}`,
     })
       .then(response => response.json())
       .then(data => {
