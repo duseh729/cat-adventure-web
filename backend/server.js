@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, "../frontend/game")));
 app.use(express.static(path.join(__dirname, "../frontend/includes")));
 
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "../frontend"));
+app.set("views", path.join(__dirname, "./frontend"));
 
 app.use(userRoutes);
 app.use(gameRoutes);
