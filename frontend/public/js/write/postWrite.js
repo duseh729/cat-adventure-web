@@ -19,7 +19,7 @@ writeButton.addEventListener("click", e => {
   // if (window.localStorage.getItem("name")){
 
   // }
-  const userId = window.localStorage.getItem("name");
+  const userId = window.localStorage.getItem("nickname");
 
   const today = new Date();
   const year = today.getFullYear();

@@ -26,7 +26,7 @@ app.use(gameRoutes);
 app.use(webRoutes);
 
 app.use("/", (req, res, next) => {
-  res.render("index");
+  res.render("index.ejs");
 });
 
 mongoConnect(client => {
