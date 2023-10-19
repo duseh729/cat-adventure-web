@@ -14,9 +14,9 @@ const webRoutes = require("./routes/web");
 
 app.use(cors()); // cors 사용
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "../frontend/public"))); // https://despiteallthat.tistory.com/151 <- 블로그 참고
-app.use(express.static(path.join(__dirname, "../frontend/game")));
-app.use(express.static(path.join(__dirname, "../frontend/includes")));
+app.use(express.static(path.join(__dirname, "./frontend/public"))); // https://despiteallthat.tistory.com/151 <- 블로그 참고
+app.use(express.static(path.join(__dirname, "./frontend/game")));
+app.use(express.static(path.join(__dirname, "./frontend/includes")));
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "./frontend"));
@@ -26,7 +26,7 @@ app.use(gameRoutes);
 app.use(webRoutes);
 
 app.use("/", (req, res, next) => {
-  res.render("index.ejs");
+  res.render("index");
 });
 
 mongoConnect(client => {
