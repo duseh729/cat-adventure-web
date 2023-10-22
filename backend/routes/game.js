@@ -22,4 +22,9 @@ router.get("/packman", (req, res, next) => {
   res.render("game/Packman/index");
 });
 
+// 유니티 게임에서 서버 통신
+router.get("/test", (req, res, next) => {
+  res.send("hello from server");
+});
+
 module.exports = router;
