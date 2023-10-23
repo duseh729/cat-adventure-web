@@ -9,7 +9,10 @@ fetch("/board-data", {
     const boardContainer = document.getElementById("board-container");
     for (i of data) {
       const writeBox = document.createElement("div");
-      writeBox.classList.add("board-write-wrapper");
+      writeBox.classList.add("board-write-box");
+      const writeA = document.createElement("a");
+      writeA.href = `/boardPost`;
+      writeA.classList.add("board-write-a");
 
       const writeId = document.createElement("span");
       writeId.innerHTML = i.id;
@@ -29,10 +32,11 @@ fetch("/board-data", {
       writeDate.innerHTML = `${i.date}`;
       writeDate.classList.add("board-write", "write-date");
 
-      writeBox.appendChild(writeId);
-      writeBox.appendChild(writeTitle);
-      writeBox.appendChild(writeWriter);
-      writeBox.appendChild(writeDate);
+      writeA.appendChild(writeId);
+      writeA.appendChild(writeTitle);
+      writeA.appendChild(writeWriter);
+      writeA.appendChild(writeDate);
+      writeBox.appendChild(writeA);
       boardContainer.appendChild(writeBox);
     }
   })

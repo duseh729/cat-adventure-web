@@ -17,6 +17,12 @@ class Board {
     return db.collection("board").insertOne(this);
   }
 
+  static findById(data) {
+    console.log(data);
+    const db = getDb();
+    return db.collection("board").findOne({ id: data.writeId });
+  }
+
   static findWriteCount() {
     const db = getDb();
     return db.collection("counter").findOne({ name: "총게시물개수" });

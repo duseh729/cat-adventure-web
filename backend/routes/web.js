@@ -20,6 +20,16 @@ router.get("/board-data", (req, res, next) => {
       console.log(err);
     });
 });
+router.get("/boardPost", (req, res, next) => {
+  Board.findById({ writeId: Number(req.params.id) })
+    .then(result => {
+      console.log(result);
+      res.render("boardPost", { jsonData: result });
+    })
+    .catch(err => {
+      console.log("게시글 오류 : ", err);
+    });
+});
 
 router.get("/write", (req, res, next) => {
   res.render("write");

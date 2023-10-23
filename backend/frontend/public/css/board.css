@@ -21,9 +21,11 @@
   margin-right: 2px;
   font-weight: 900;
 }
-.board-write-wrapper {
+.board-write-box {
   width: 80%;
   border-bottom: 1px solid #c8c8c8;
+}
+.board-write-a {
   display: flex;
 }
 .board-write {
