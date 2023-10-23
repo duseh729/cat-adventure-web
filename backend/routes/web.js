@@ -27,7 +27,7 @@ router.get("/board/:id", (req, res, next) => {
   Board.findById({ writeId: Number(req.params.id) })
     .then((result) => {
       console.log(result);
-      res.json({ jsonData: result });
+      res.json(result);
     })
     .catch((err) => {
       console.log("게시글 오류 : ", err);

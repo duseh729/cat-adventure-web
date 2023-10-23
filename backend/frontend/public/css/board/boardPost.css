@@ -1,0 +1,14 @@
+.post-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#post-title-container {
+  background-color: aqua;
+  width: 90%;
+  margin-top: 45px;
+  padding: 20px 15px;
+  border-top: 3px tomato solid;
+  border-bottom: 1px gray solid;
+}

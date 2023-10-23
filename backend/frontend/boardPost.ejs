@@ -6,6 +6,7 @@
     <title>Document</title>
     <!-- css -->
     <%- include('includes/style') %>
+    <link rel="stylesheet" href="css/board/boardPost.css" />
   </head>
   <body>
     <!-- login -->
@@ -13,6 +14,20 @@
 
     <!-- navbar -->
     <%- include('includes/nav') %>
+    <div id="contents-position">
+      <div class="post-wrapper">
+        <div id="post-title-container">
+          <h2 id="post-title"></h2>
+          <div>
+            <span id="post-user-id"></span>
+            <span id="post-date"></span>
+          </div>
+        </div>
+        <div class="post-contents-container">
+          <p id="post-contents"></p>
+        </div>
+      </div>
+    </div>
 
     <!-- js -->
     <%- include('includes/js') %>

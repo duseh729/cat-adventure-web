@@ -1,7 +1,13 @@
+const postTitle = document.getElementById("post-title");
+const postUserId = document.getElementById("post-user-id");
+const postDate = document.getElementById("post-date");
+
+const postContents = document.getElementById("post-contents");
+
 let query = window.location.search;
 let param = new URLSearchParams(query);
 let postId = param.get("postId");
-console.log(postId);
+
 fetch(`board/${postId}`, {
   method: "GET",
   headers: {
@@ -11,4 +17,8 @@ fetch(`board/${postId}`, {
   .then((response) => response.json())
   .then((data) => {
     console.log(data);
+    postTitle.innerHTML = data.title;
+    postUserId.innerHTML = data.userId;
+    postDate.innerHTML = data.date;
+    postContents.innerHTML = data.contents;
   });
