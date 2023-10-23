@@ -13,20 +13,23 @@ router.get("/board", (req, res, next) => {
 });
 router.get("/board-data", (req, res, next) => {
   Board.findAll()
-    .then(write => {
+    .then((write) => {
       return res.json(write);
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
     });
 });
 router.get("/boardPost", (req, res, next) => {
+  res.render("boardPost");
+});
+router.get("/board/:id", (req, res, next) => {
   Board.findById({ writeId: Number(req.params.id) })
-    .then(result => {
+    .then((result) => {
       console.log(result);
-      res.render("boardPost", { jsonData: result });
+      res.json({ jsonData: result });
     })
-    .catch(err => {
+    .catch((err) => {
       console.log("게시글 오류 : ", err);
     });
 });
@@ -36,19 +39,19 @@ router.get("/write", (req, res, next) => {
 });
 router.post("/write", (req, res, next) => {
   const { userId, title, contents, date } = { ...req.body };
-  Board.findWriteCount().then(write => {
+  Board.findWriteCount().then((write) => {
     const totalPosts = write.totalPosts;
     if (totalPosts !== undefined) {
       const board = new Board(totalPosts + 1, userId, title, contents, date);
 
       board
         .save()
-        .then(result => {
+        .then((result) => {
           console.log("Board saved: ", result);
           Board.increaseWriteCount();
           res.status(202).json({ message: "success" });
         })
-        .catch(error => {
+        .catch((error) => {
           console.error("Error saving board:", error);
           res.status(500).json({ message: "fail" });
         });

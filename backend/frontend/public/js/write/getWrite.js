@@ -4,14 +4,14 @@ fetch("/board-data", {
     "Content-Type": "application/x-www-form-urlencoded",
   },
 })
-  .then(response => response.json())
-  .then(data => {
+  .then((response) => response.json())
+  .then((data) => {
     const boardContainer = document.getElementById("board-container");
     for (i of data) {
       const writeBox = document.createElement("div");
       writeBox.classList.add("board-write-box");
       const writeA = document.createElement("a");
-      writeA.href = `/boardPost`;
+      writeA.href = `/boardPost?postId=${i.id}`;
       writeA.classList.add("board-write-a");
 
       const writeId = document.createElement("span");
@@ -40,6 +40,6 @@ fetch("/board-data", {
       boardContainer.appendChild(writeBox);
     }
   })
-  .catch(error => {
+  .catch((error) => {
     console.error("Error:", error);
   });
