@@ -23,8 +23,15 @@
             <span id="post-date"></span>
           </div>
         </div>
-        <div class="post-contents-container">
+        <div id="post-contents-container">
           <p id="post-contents"></p>
+        </div>
+        <div id="post-button-container">
+          <a href="/board"><button>목록</button></a>
+          <div id="post-user-button">
+            <button>수정</button>
+            <button>삭제</button>
+          </div>
         </div>
       </div>
     </div>
@@ -32,5 +39,6 @@
     <!-- js -->
     <%- include('includes/js') %>
     <script src="js/board/getPost.js"></script>
+    <script src="js/board/userPostHandler.js"></script>
   </body>
 </html>
