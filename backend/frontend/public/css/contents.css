@@ -32,40 +32,45 @@
   display: flex;
   padding: 25px 80px;
 }
-.second-main-contents .second-main-contents-text-wrapper {
+.second-main-contents-text-wrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.second-main-contents .second-main-contents-text-wrapper h1 {
+.second-main-contents-text-wrapper h1 {
   transition: all 1.5s;
 }
-.second-main-contents .second-main-contents-text-wrapper p {
+.second-main-contents-text-wrapper p {
   font-size: 16px;
   margin-top: 15px;
   transition: all 1s;
 }
-.second-main-contents .game-box-wrapper-container {
+.game-box-wrapper-container {
   flex: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.second-main-contents .game-box-wrapper {
+.game-box-wrapper {
   display: flex;
   align-items: center;
   justify-content: right;
   margin-bottom: 15px;
 }
-.second-main-contents .game-box {
-  background-color: white;
+.game-box {
+  background-color: bisque;
   margin-right: 15px;
   width: 150px;
   height: 200px;
   border-radius: 10px;
 }
-.second-main-contents .game-box:hover {
+/* game.ejs의 game-box css */
+.game-page-game-box {
+  width: 230px;
+  height: 330px;
+}
+.game-box:hover {
   scale: 1.05;
 }
 /* second-contents 안에 게임 박스 */

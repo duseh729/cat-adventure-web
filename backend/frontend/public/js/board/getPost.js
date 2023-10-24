@@ -18,7 +18,11 @@ fetch(`board/${postId}`, {
   .then((data) => {
     console.log(data);
     postTitle.innerHTML = data.title;
-    postUserId.innerHTML = data.userId;
+    if (data.userId !== "null") {
+      postUserId.innerHTML = data.userId;
+    } else {
+      postUserId.innerHTML = "익명";
+    }
     postDate.innerHTML = data.date;
     postContents.innerHTML = data.contents;
   });

@@ -4,7 +4,6 @@
   align-items: center;
 }
 #post-title-container {
-  background-color: aqua;
   width: 80%;
   margin-top: 45px;
   padding: 20px 15px;
@@ -14,8 +13,8 @@
 
 #post-contents-container {
   width: 80%;
-  background-color: bisque;
   padding: 20px 15px;
+  border-bottom: 1px gray solid;
 }
 
 #post-button-container {
