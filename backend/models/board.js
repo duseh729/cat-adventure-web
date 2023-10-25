@@ -18,9 +18,13 @@ class Board {
   }
 
   static findById(data) {
-    console.log(data);
     const db = getDb();
-    return db.collection("board").findOne({ id: data.writeId });
+    return db.collection("board").findOne({ id: data.id });
+  }
+
+  static deleteOneById(data) {
+    const db = getDb();
+    return db.collection("board").deleteOne({ id: data.id });
   }
 
   static findWriteCount() {

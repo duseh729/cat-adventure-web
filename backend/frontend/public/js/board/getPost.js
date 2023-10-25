@@ -4,6 +4,8 @@ const postDate = document.getElementById("post-date");
 
 const postContents = document.getElementById("post-contents");
 
+const postUserButton = document.getElementById("post-user-button");
+
 let query = window.location.search;
 let param = new URLSearchParams(query);
 let postId = param.get("postId");
@@ -14,9 +16,8 @@ fetch(`board/${postId}`, {
     "Content-Type": "application/x-www-form-urlencoded",
   },
 })
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
+  .then(response => response.json())
+  .then(data => {
     postTitle.innerHTML = data.title;
     if (data.userId !== "null") {
       postUserId.innerHTML = data.userId;
@@ -25,4 +26,11 @@ fetch(`board/${postId}`, {
     }
     postDate.innerHTML = data.date;
     postContents.innerHTML = data.contents;
+
+    console.log(nickname, data.userId);
+    if (nickname !== data.userId) {
+      postUserButton.classList.add("display-none");
+    } else {
+      postUserButton.classList.remove("display-none");
+    }
   });

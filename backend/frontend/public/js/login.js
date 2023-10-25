@@ -21,7 +21,6 @@ loginForm.addEventListener("submit", e => {
       .then(response => response.json())
       .then(data => {
         window.localStorage.setItem("nickname", data.userNickname);
-        const nickname = window.localStorage.getItem("nickname");
         window.location.href = "/";
       })
       .catch(error => {
