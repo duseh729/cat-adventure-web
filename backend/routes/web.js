@@ -72,6 +72,23 @@ router.delete("/delete-post", (req, res, next) => {
     });
 });
 
+router.get("/write-update", (req, res, next) => {
+  res.render("writeUpdate");
+});
+router.post("/write-update", (req, res, next) => {
+  const { postId, updateTitle, updateContents, updateDate } = { ...req.body };
+
+  console.log(postId, updateTitle, updateContents, updateDate);
+
+  Board.updateOneById({ postId, updateTitle, updateContents, updateDate })
+    .then(result => {
+      res.json({ message: "success" });
+    })
+    .catch(err => {
+      console.log("게시글 수정 오류: ", err);
+    });
+});
+
 router.get("/game", (req, res, next) => {
   res.render("game");
 });

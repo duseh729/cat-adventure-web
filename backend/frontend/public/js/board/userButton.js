@@ -3,6 +3,8 @@ const deleteButton = document.getElementById("delete-button");
 
 updateButton.addEventListener("click", e => {
   e.preventDefault();
+
+  window.location.href = `/write-update?postId=${postId}`;
 });
 deleteButton.addEventListener("click", e => {
   e.preventDefault();

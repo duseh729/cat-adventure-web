@@ -6,9 +6,9 @@ const postContents = document.getElementById("post-contents");
 
 const postUserButton = document.getElementById("post-user-button");
 
-let query = window.location.search;
-let param = new URLSearchParams(query);
-let postId = param.get("postId");
+const query = window.location.search;
+const param = new URLSearchParams(query);
+const postId = param.get("postId");
 
 fetch(`board/${postId}`, {
   method: "GET",

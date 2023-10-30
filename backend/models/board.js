@@ -45,5 +45,14 @@ class Board {
       throw error;
     }
   }
+
+  static updateOneById(data) {
+    const db = getDb();
+
+    const { postId, updateTitle, updateContents, updateDate } = { ...data };
+
+    console.log("mongo", typeof postId, updateTitle, updateContents, updateDate);
+    return db.collection("board").updateOne({ id: Number(postId) }, { $set: { title: updateTitle, contents: updateContents, date: updateDate } });
+  }
 }
 exports.Board = Board;
