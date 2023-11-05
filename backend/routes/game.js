@@ -26,5 +26,8 @@ router.get("/packman", (req, res, next) => {
 router.get("/test", (req, res, next) => {
   res.send("hello from server");
 });
+router.post("/test", (req, res, next) => {
+  console.log(req.body);
+});
 
 module.exports = router;
