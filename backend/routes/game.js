@@ -1,6 +1,10 @@
 const express = require("express");
+const cors = require("cors"); // cors 라이브러리 import
 
 const router = express.Router();
+
+router.use(cors()); // cors 사용
+router.use(express.json());
 
 router.get("/escape", (req, res) => {
   res.render("game/Escape/index");
