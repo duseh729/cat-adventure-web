@@ -93,4 +93,8 @@ router.get("/game", (req, res, next) => {
   res.render("game");
 });
 
+router.get("/achievements", (req, res, next) => {
+  res.render("achievements");
+});
+
 module.exports = router;

@@ -27,9 +27,6 @@ router.get("/packman", (req, res, next) => {
 });
 
 // 유니티 게임에서 서버 통신
-router.get("/test", (req, res, next) => {
-  res.send("hello from server");
-});
 router.post("/test", (req, res, next) => {
   console.log(req.body);
 });

@@ -8,6 +8,7 @@
   const logoNavigation = document.querySelector(".logo");
   const gameNavigation = document.getElementById("game-navigation");
   const boardNavigation = document.getElementById("board-navigation");
+  const achievementsNavigation = document.getElementById("achievements-navigation");
 
   logoNavigation.addEventListener("click", e => {
     e.preventDefault();
@@ -23,5 +24,13 @@
     e.preventDefault();
 
     window.location.href = "/board";
+  });
+
+  achievementsNavigation.addEventListener("click", () => {
+    if (window.localStorage.getItem("nickname")) {
+      window.location.href = "/achievements";
+    } else {
+      window.alert("로그인 후 업적 이용 가능합니다.");
+    }
   });
 </script>
