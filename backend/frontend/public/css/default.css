@@ -6,6 +6,10 @@ div {
   box-sizing: border-box;
 }
 
+h4 {
+  margin-top: 0;
+}
+
 h1,
 h2,
 p {
