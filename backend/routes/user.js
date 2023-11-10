@@ -11,9 +11,9 @@ router.post("/login", (req, res) => {
   User.findById({ userId: userId })
     .then(user => {
       if (!user || user.password !== userPw) {
-        return res.status(401).json({ message: "Invalid username or password." });
+        return res.status(401).json({ message: "fail" });
       }
-      res.status(200).json({ message: "Login successful.", userNickname: user.nickname });
+      res.status(200).json({ message: "success", userNickname: user.nickname });
     })
     .catch(error => {
       console.error("Error during login:", error);

@@ -20,8 +20,12 @@ loginForm.addEventListener("submit", e => {
     })
       .then(response => response.json())
       .then(data => {
-        window.localStorage.setItem("nickname", data.userNickname);
-        window.location.href = "/";
+        if (data.message === "success") {
+          window.localStorage.setItem("nickname", data.userNickname);
+          window.location.href = "/";
+        } else {
+          window.alert("아이디 또는 비밀번호가 잘못되었습니다.");
+        }
       })
       .catch(error => {
         console.error("Error:", error);
