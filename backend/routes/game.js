@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors"); // cors 라이브러리 import
+const { User } = require("../models/user");
 
 const router = express.Router();
 
@@ -27,8 +28,28 @@ router.get("/packman", (req, res, next) => {
 });
 
 // 유니티 게임에서 서버 통신
-router.post("/test", (req, res, next) => {
-  console.log(req.body);
+router.post("/update-achievements", (req, res, next) => {
+  const nickname = "qwer";
+  const { game } = { ...req.body };
+
+  const gameList = ["tekken", "packman", "quiz", "escape", "tower-defence"];
+  if (!gameList.includes(game)) {
+    return res.send("ㅈ같은 게임 보내지마");
+  }
+
+  User.findByNickname({ nickname: nickname }).then(result => {
+    if (result.achievements.includes(game)) {
+      return res.send("포함됨");
+    } else {
+      User.updateAchievementsByNickname({ nickname: nickname, achievements: [...result.achievements, game] })
+        .then(result => {
+          return res.send("업적이 저장되었어");
+        })
+        .catch(err => {
+          console.log("업적 업데이트 오류:", err);
+        });
+    }
+  });
 });
 
 module.exports = router;

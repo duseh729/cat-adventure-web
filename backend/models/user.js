@@ -28,6 +28,10 @@ class User {
 
   static updateAchievementsByNickname(data) {
     const db = getDb();
+
+    const { nickname, achievements } = { ...data };
+
+    return db.collection("users").updateOne({ nickname: nickname }, { $set: { achievements: achievements } });
   }
 }
 
