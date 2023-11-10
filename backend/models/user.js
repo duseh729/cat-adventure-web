@@ -8,6 +8,7 @@ class User {
     this.id = id;
     this.nickname = nickname;
     this.password = password;
+    this.achievements = [];
   }
 
   save() {
@@ -18,6 +19,15 @@ class User {
   static findById(data) {
     const db = getDb();
     return db.collection("users").findOne({ id: data.userId });
+  }
+
+  static findByNickname(data) {
+    const db = getDb();
+    return db.collection("users").findOne({ nickname: data.nickname });
+  }
+
+  static updateAchievementsByNickname(data) {
+    const db = getDb();
   }
 }
 

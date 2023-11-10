@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const { Board } = require("../models/board");
+const { User } = require("../models/user");
 
 router.get("/", (req, res, next) => {
   res.render("index");
@@ -95,6 +96,17 @@ router.get("/game", (req, res, next) => {
 
 router.get("/achievements", (req, res, next) => {
   res.render("achievements");
+});
+router.post("/achievements-data", (req, res, next) => {
+  const { nickname } = { ...req.body };
+
+  User.findByNickname({ nickname })
+    .then(result => {
+      res.json({ achievements: result.achievements });
+    })
+    .catch(err => {
+      console.log("업적찾기 오류: ", err);
+    });
 });
 
 module.exports = router;
