@@ -30,6 +30,11 @@ router.get("/packman", (req, res, next) => {
 // 유니티 게임에서 서버 통신
 router.post("/update-achievements", (req, res, next) => {
   const nickname = "qwer";
+  console.log(req.body);
+  console.log(req.body.game);
+  for (let i in req.body) {
+    console.log(i);
+  }
   const { game } = { ...req.body };
 
   const gameList = ["tekken", "packman", "quiz", "escape", "tower-defence"];
