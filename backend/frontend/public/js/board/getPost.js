@@ -16,8 +16,8 @@ fetch(`board/${postId}`, {
     "Content-Type": "application/x-www-form-urlencoded",
   },
 })
-  .then(response => response.json())
-  .then(data => {
+  .then((response) => response.json())
+  .then((data) => {
     postTitle.innerHTML = data.title;
     if (data.userId !== "null") {
       postUserId.innerHTML = data.userId;
@@ -28,7 +28,10 @@ fetch(`board/${postId}`, {
     postContents.innerHTML = data.contents;
 
     console.log(nickname, data.userId);
-    if (nickname !== data.userId) {
+
+    if (nickname === "admin") {
+      postUserButton.classList.remove("display-none");
+    } else if (nickname !== data.userId) {
       postUserButton.classList.add("display-none");
     } else {
       postUserButton.classList.remove("display-none");
